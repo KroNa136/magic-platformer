@@ -2,10 +2,10 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    private const float TouchDamage = 10f;
+    protected const float TouchDamage = 10f;
 
-    public abstract void MoveTo(Vector3 position);
-    public abstract void StayInPlace();
+    protected abstract void MoveTo(Vector2 position);
+    protected abstract void StayInPlace();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

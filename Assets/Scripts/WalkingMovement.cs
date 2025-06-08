@@ -8,11 +8,13 @@ public class WalkingMovement : Movement
     [SerializeField][Min(0f)] private float _moveSpeed = 5f;
     [SerializeField][Min(0f)] private float _jumpForce = 5f;
     [SerializeField] private LayerMask _groundLayerMask;
+    public LayerMask GroundLayerMask => _groundLayerMask;
 
     private Rigidbody2D _rigidbody;
     private BoxCollider2D _boxCollider;
 
     public bool IsGrounded { get; private set; } = false;
+    private bool _wasGroundedLastFrame = false;
 
     public float HorizontalInput { get; set; } = 0f;
     public bool JumpInput { get; set; } = false;
@@ -26,12 +28,17 @@ public class WalkingMovement : Movement
 
     private void Update()
     {
-        /*
-        if (CheckGround() && !_isGrounded)
-            _audioController.Land();
-        */
-
         IsGrounded = CheckGround();
+
+        if (IsGrounded && !_wasGroundedLastFrame)
+        {
+            _animator.Bind(animator => animator.SetTrigger("Land"));
+            //_audioController.Land();
+        }
+        else
+        {
+            _animator.Bind(animator => animator.ResetTrigger("Land"));
+        }
 
         if (JumpInput && IsGrounded)
             Jump();
@@ -45,6 +52,8 @@ public class WalkingMovement : Movement
                 animator.SetTrigger("Fall");
             */
         });
+
+        _wasGroundedLastFrame = IsGrounded;
     }
 
     private void FixedUpdate()
@@ -61,7 +70,7 @@ public class WalkingMovement : Movement
 
         if (HorizontalInput > 0f)
             _spriteRenderer.flipX = false;
-        else if (HorizontalInput < -0f)
+        else if (HorizontalInput < 0f)
             _spriteRenderer.flipX = true;
 
         //_audioController.SetWalking(_rigidbody.linearVelocityX != 0 && CheckGround());

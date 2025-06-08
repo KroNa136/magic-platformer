@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     private Animator _animator;
 
     private bool _canMove = false;
+    private bool _isDestroying = false;
 
     private void Awake()
     {
@@ -49,6 +50,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (_isDestroying)
+            return;
+
         if (collider.gameObject.IsNotInLayerMask(_targetLayerMask))
             return;
 
@@ -68,6 +72,7 @@ public class Projectile : MonoBehaviour
     private IEnumerator StopAndDestroyAfterAnimation()
     {
         _canMove = false;
+        _isDestroying = true;
 
         if (_animator != null)
         {

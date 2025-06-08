@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Enemies
   - Coins
-  - 
+  - Player
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 2335349397
+    locked: 0
+  - name: Ground
+    uniqueID: 2951511407
     locked: 0
   - name: Entities
     uniqueID: 598311647

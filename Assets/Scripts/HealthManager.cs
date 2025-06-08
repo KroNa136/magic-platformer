@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public abstract class HealthManager : MonoBehaviour, IDamageable
 {
-    protected UnityEvent<float> OnCurrentAmountChange = new();
+    [HideInInspector] public UnityEvent<float> OnCurrentAmountChange = new();
 
     [SerializeField][Min(0f)] protected float _maxAmount = 100f;
 
@@ -61,6 +62,12 @@ public abstract class HealthManager : MonoBehaviour, IDamageable
         }
     }
 
+    public void TakeLethalDamage()
+    {
+        CurrentAmount = 0;
+        Die();
+    }
+
     protected void Die()
     {
         if (TryGetComponent(out Movement movement))
@@ -98,13 +105,26 @@ public abstract class HealthManager : MonoBehaviour, IDamageable
     private IEnumerator FadeOutAndDestroy()
     {
         Color color = _spriteRenderer.color;
+
+        Light2D[] lights = GetComponentsInChildren<Light2D>();
+        float[] initialLightIntensities = new float[lights.Length];
+
+        for (int i = 0; i < lights.Length; i++)
+            initialLightIntensities[i] = lights[i].intensity;
+
         float time = 0f;
+        float interpolator;
 
         while (_spriteRenderer.color.a > 0f)
         {
-            _spriteRenderer.color = new Color(color.r, color.g, color.b, Mathf.Lerp(color.a, 0f, time / _fadeAfterDeathDuration));
-            time += Time.deltaTime;
+            interpolator = time / _fadeAfterDeathDuration;
 
+            _spriteRenderer.color = new Color(color.r, color.g, color.b, Mathf.Lerp(color.a, 0f, interpolator));
+
+            for (int i = 0; i < lights.Length; i++)
+                lights[i].intensity = Mathf.Lerp(initialLightIntensities[i], 0f, interpolator);
+
+            time += Time.deltaTime;
             yield return null;
         }
 

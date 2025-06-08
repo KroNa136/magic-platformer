@@ -21,6 +21,9 @@ public class EnemyHealthManager : HealthManager
 
     protected override void OnDeath()
     {
+        if (TryGetComponent(out Enemy enemy))
+            Destroy(enemy);
+
         int coinCount = Random.Range(_onDeathMinCoinsCount, _onDeathMaxCoinsCount + 1);
 
         for (int i = 0; i < coinCount; i++)

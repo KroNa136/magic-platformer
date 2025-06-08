@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
     [Space]
 
     [SerializeField][Min(0f)] private float _damage = 50f;
-    [SerializeField][Min(0f)] private float _energyConsumption = 20f;
+    [SerializeField][Min(0f)] private float _manaConsumption = 20f;
     [SerializeField][Min(0f)] private float _delayBeforeProjectileSpawn = 1f;
 
     private Animator _animator;
@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.Instance.Attack && !_isAttacking && _canAttack && ManaManager.Instance.TryDepleteMana(_energyConsumption))
+        if (InputManager.Instance.Attack && !_isAttacking && _canAttack && ManaManager.Instance.TryDepleteMana(_manaConsumption))
             StartCoroutine(PlayAnimationAndSpawnProjectile());
     }
 

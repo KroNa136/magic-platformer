@@ -12,7 +12,7 @@ public abstract class WalkingEnemy : Enemy
         OnAwake();
     }
 
-    public override void MoveTo(Vector3 position)
+    protected override void MoveTo(Vector2 position)
     {
         float xDifference = position.x - transform.position.x;
 
@@ -22,11 +22,9 @@ public abstract class WalkingEnemy : Enemy
             > 0f => 1f,
             _ => 0f
         };
-
-        _movement.JumpInput = false;
     }
 
-    public override void StayInPlace()
+    protected override void StayInPlace()
     {
         _movement.HorizontalInput = 0f;
         _movement.JumpInput = false;
