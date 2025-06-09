@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Mouse>/leftButton
+  m_ControlPath: <Keyboard>/enter
 --- !u!114 &84816321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,9 +1863,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 720028754}
-  _pickCoinAudioClip: {fileID: 0}
-  _spendCoinsAudioClip: {fileID: 0}
-  _pickHealthPotionAudioClip: {fileID: 0}
+  _pickCoinAudioClip: {fileID: 8300000, guid: 808b1c1bb474b2e4e81f482b61c5af1f, type: 3}
+  _spendCoinsAudioClip: {fileID: 8300000, guid: b9703806690cb49a58ab182032cad276, type: 3}
+  _pickHealthPotionAudioClip: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
 --- !u!114 &230063541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,8 +1879,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 720028754}
-  _attackAudioClip: {fileID: 0}
-  _attackFailAudioClip: {fileID: 0}
+  _attackAudioClip: {fileID: 8300000, guid: 674258a055e994b72bbb15a28eb79838, type: 3}
+  _attack2AudioClip: {fileID: 0}
+  _attackFailAudioClip: {fileID: 8300000, guid: 1ed8fb76fc64e4e46847348138782234, type: 3}
 --- !u!114 &230063542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,8 +1895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 720028754}
-  _takeDamageAudioClip: {fileID: 0}
-  _dieAudioClip: {fileID: 0}
+  _takeDamageAudioClip: {fileID: 8300000, guid: e40c34774aee41e42825aeb3b5964ce1, type: 3}
+  _dieAudioClip: {fileID: 8300000, guid: acbcb75601b0082458fda8807f67c813, type: 3}
 --- !u!114 &230063543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,9 +1911,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepsAudioSource: {fileID: 974135480}
   _othersAudioSource: {fileID: 720028754}
-  _stepAudioClips: []
-  _jumpAudioClip: {fileID: 0}
-  _landAudioClip: {fileID: 0}
+  _stepAudioClips:
+  - {fileID: 8300000, guid: 8fc252ff972370241b2451ee8684b871, type: 3}
+  - {fileID: 8300000, guid: dbdad1c2d8b77324bba9b579cff98b8d, type: 3}
+  - {fileID: 8300000, guid: 8a5d0caffed7ad8408762173197c89eb, type: 3}
+  - {fileID: 8300000, guid: e7132f9c36139aa4499ff5c5e80e8eaa, type: 3}
+  - {fileID: 8300000, guid: 68919eef930646c47baec2350ce2b51f, type: 3}
+  _jumpAudioClip: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  _landAudioClip: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
   _stepDuration: 0.3
 --- !u!1 &260583069
 GameObject:
@@ -3908,7 +3914,7 @@ Transform:
   m_GameObject: {fileID: 559777116}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.055, y: 1.604, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3924,8 +3930,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6642108766444293048, guid: b2de1456b2f3c2346aac42059ae76653, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 53c872007347a4aab8d8d2bc9bf181f1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 53c872007347a4aab8d8d2bc9bf181f1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6262,7 +6268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1027853396}
-  _pressButtonAudioClip: {fileID: 0}
+  _pressButtonAudioClip: {fileID: 8300000, guid: 92d9128629e9e7a45afd47f4eff2c461, type: 3}
 --- !u!4 &958991024
 Transform:
   m_ObjectHideFlags: 0

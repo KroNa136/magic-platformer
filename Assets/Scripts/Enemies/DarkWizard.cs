@@ -123,13 +123,17 @@ public class DarkWizard : WalkingEnemy
     {
         _isAttacking = true;
 
-        _audioController.Bind(audioController => audioController.Attack());
+        int randomAttackNumber = Random.Range(0, 2) == 0 ? 1 : 2;
+
+        if (randomAttackNumber == 1)
+            _audioController.Bind(audioController => audioController.Attack());
+        else
+            _audioController.Bind(audioController => audioController.Attack2());
 
         if (_animator != null)
         {
-            (string randomAttackAnimation, float delayBeforeAttack) = Random.Range(0, 2) == 0 ?
-                ("Attack1", _delayBeforeAttack1) :
-                ("Attack2", _delayBeforeAttack2);
+            string randomAttackAnimation = $"Attack{randomAttackNumber}";
+            float delayBeforeAttack = randomAttackNumber == 0 ? _delayBeforeAttack1 : _delayBeforeAttack2;
 
             _animator.SetTrigger(randomAttackAnimation);
             yield return null;

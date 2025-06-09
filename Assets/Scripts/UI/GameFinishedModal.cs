@@ -9,6 +9,9 @@ public class GameFinishedModal : Modal
     private const string IntellectKey = "player_intellect";
     private const string CoinsKey = "player_coins";
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _victoryAudioClip;
+
     public void ToMenu()
     {
         PlayerPrefs.DeleteKey(CurrentLevelKey);
@@ -22,6 +25,11 @@ public class GameFinishedModal : Modal
         SceneManager.LoadSceneAsync("Main Menu", LoadSceneMode.Single);
     }
 
-    protected override void OnActivate() { }
+    protected override void OnActivate()
+    {
+        if (_audioSource != null && _victoryAudioClip != null)
+            _audioSource.PlayOneShot(_victoryAudioClip);
+    }
+
     protected override void OnDeactivate() { }
 }

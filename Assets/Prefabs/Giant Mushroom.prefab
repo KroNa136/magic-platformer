@@ -281,10 +281,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepsAudioSource: {fileID: 1092737206579599922}
   _othersAudioSource: {fileID: 4399728282955909507}
-  _stepAudioClips: []
-  _jumpAudioClip: {fileID: 0}
-  _landAudioClip: {fileID: 0}
-  _stepDuration: 0.3
+  _stepAudioClips:
+  - {fileID: 8300000, guid: c30be629cb0f2f047926257d3c348fa2, type: 3}
+  - {fileID: 8300000, guid: 117ee758af99f55458d5e299dd568462, type: 3}
+  - {fileID: 8300000, guid: fe550c1d301697d4cb10a20ab0aa4ee5, type: 3}
+  - {fileID: 8300000, guid: de7e760217c5e7c42bf69b9bf512b78e, type: 3}
+  - {fileID: 8300000, guid: aa5daff71fd47a5449265db33ed14374, type: 3}
+  _jumpAudioClip: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  _landAudioClip: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
+  _stepDuration: 0.7
 --- !u!114 &366334715709982414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,8 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 4399728282955909507}
-  _takeDamageAudioClip: {fileID: 0}
-  _dieAudioClip: {fileID: 0}
+  _takeDamageAudioClip: {fileID: 8300000, guid: e40c34774aee41e42825aeb3b5964ce1, type: 3}
+  _dieAudioClip: {fileID: 8300000, guid: de9234ccb70504fa4b510138a495897f, type: 3}
 --- !u!114 &5237541890306000787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 4399728282955909507}
-  _attackAudioClip: {fileID: 0}
+  _attackAudioClip: {fileID: 8300000, guid: d745db82c2de00c438602fe4ce8a716b, type: 3}
+  _attack2AudioClip: {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
   _attackFailAudioClip: {fileID: 0}
 --- !u!1 &5916398836389187796
 GameObject:

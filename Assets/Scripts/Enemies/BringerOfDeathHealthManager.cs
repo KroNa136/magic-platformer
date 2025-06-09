@@ -51,16 +51,8 @@ public class BringerOfDeathHealthManager : EnemyHealthManager
 
         _bossBar.alpha = 0f;
 
-        if (_musicAudioSource != null && _bossMusicAudioClip != null)
-        {
+        if (_musicAudioSource != null && _bossMusicAudioClip != null && _musicAudioSource.clip == _bossMusicAudioClip)
             _musicAudioSource.Stop();
-
-            if (_defaultMusicAudioClip != null)
-            {
-                _musicAudioSource.clip = _defaultMusicAudioClip;
-                _musicAudioSource.Play();
-            }
-        }
 
         StartCoroutine(ShowGameFinishedModalAfterDelay());
     }

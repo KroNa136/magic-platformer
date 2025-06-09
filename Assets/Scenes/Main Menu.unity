@@ -2845,7 +2845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 919828851}
-  _pressButtonAudioClip: {fileID: 0}
+  _pressButtonAudioClip: {fileID: 8300000, guid: 92d9128629e9e7a45afd47f4eff2c461, type: 3}
 --- !u!4 &1555618574
 Transform:
   m_ObjectHideFlags: 0
@@ -3820,8 +3820,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6642108766444293048, guid: b2de1456b2f3c2346aac42059ae76653, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c5fc88898564c694aacd54e8245899a2, type: 3}
+  m_Resource: {fileID: 8300000, guid: c5fc88898564c694aacd54e8245899a2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

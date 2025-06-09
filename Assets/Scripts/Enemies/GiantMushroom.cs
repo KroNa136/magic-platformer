@@ -78,11 +78,16 @@ public class GiantMushroom : WalkingEnemy
     {
         _isAttacking = true;
 
-        _audioController.Bind(audioController => audioController.Attack());
+        int randomAttackNumber = Random.Range(0, 2) == 0 ? 1 : 2;
+
+        if (randomAttackNumber == 1)
+            _audioController.Bind(audioController => audioController.Attack());
+        else
+            _audioController.Bind(audioController => audioController.Attack2());
 
         if (_animator != null)
         {
-            string randomAttackAnimation = Random.Range(0, 2) == 0 ? "Attack1" : "Attack2";
+            string randomAttackAnimation = $"Attack{randomAttackNumber}";
 
             _animator.SetTrigger(randomAttackAnimation);
             yield return null;

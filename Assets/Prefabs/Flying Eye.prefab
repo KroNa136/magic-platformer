@@ -510,7 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 737493648457984922}
   _volume: 1
-  _flyAudioClip: {fileID: 0}
+  _flyAudioClip: {fileID: 8300000, guid: 3f158e83647d4dd4c860a918b06cfc70, type: 3}
 --- !u!114 &3652339970052990550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,8 +524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 737493648457984922}
-  _takeDamageAudioClip: {fileID: 0}
-  _dieAudioClip: {fileID: 0}
+  _takeDamageAudioClip: {fileID: 8300000, guid: e40c34774aee41e42825aeb3b5964ce1, type: 3}
+  _dieAudioClip: {fileID: 8300000, guid: d1afd3f4d23c24f418ffc315afb04965, type: 3}
 --- !u!114 &7847532696494406453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,5 +539,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 737493648457984922}
-  _attackAudioClip: {fileID: 0}
+  _attackAudioClip: {fileID: 8300000, guid: 0f409be98ecc24e2990b7776639f37b8, type: 3}
+  _attack2AudioClip: {fileID: 0}
   _attackFailAudioClip: {fileID: 0}
