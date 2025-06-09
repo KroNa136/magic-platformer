@@ -2,6 +2,9 @@ using UnityEngine;
 
 public abstract class Movement : MonoBehaviour
 {
+    [SerializeField] protected bool _spriteIsFlippedByDefault = false;
+    public bool SpriteIsFlippedByDefault => _spriteIsFlippedByDefault;
+
     protected SpriteRenderer _spriteRenderer;
     protected Animator _animator;
 

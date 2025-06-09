@@ -18,21 +18,45 @@ public class SettingsModal : Modal
 
         if (firstLaunch)
         {
-            _soundVolumeSlider.value = 100f;
-            _musicVolumeSlider.value = 100f;
+            _soundVolumeSlider.value = 1f;
+            _musicVolumeSlider.value = 1f;
+
+            _audioMixer.SetFloat(SoundVolumeKey, SliderValueToVolume(1f));
+            _audioMixer.SetFloat(MusicVolumeKey, SliderValueToVolume(1f));
         }
         else
         {
             _soundVolumeSlider.value = PlayerPrefs.GetFloat(SoundVolumeKey);
             _musicVolumeSlider.value = PlayerPrefs.GetFloat(MusicVolumeKey);
+
+            _audioMixer.SetFloat(SoundVolumeKey, SliderValueToVolume(_soundVolumeSlider.value));
+            _audioMixer.SetFloat(MusicVolumeKey, SliderValueToVolume(_musicVolumeSlider.value));
         }
     }
 
     public void SetSoundVolume()
-        => PlayerPrefs.SetFloat(SoundVolumeKey, _soundVolumeSlider.value);
+    {
+        PlayerPrefs.SetFloat(SoundVolumeKey, _soundVolumeSlider.value);
+        _audioMixer.SetFloat(SoundVolumeKey, SliderValueToVolume(_soundVolumeSlider.value));
+    }
 
     public void SetMusicVolume()
-        => PlayerPrefs.SetFloat(MusicVolumeKey, _musicVolumeSlider.value);
+    {
+        PlayerPrefs.SetFloat(MusicVolumeKey, _musicVolumeSlider.value);
+        _audioMixer.SetFloat(MusicVolumeKey, SliderValueToVolume(_musicVolumeSlider.value));
+    }
+
+    private float SliderValueToVolume(float value)
+    {
+        // These values are in dB.
+        float maxVolume = 0f;
+        float minVolume = -80f;
+
+        // Converting from a linear scale to a logarithmic scale in such a way
+        // that the change in volume sounds subjectively close to linear.
+        // https://stackoverflow.com/questions/46529147/how-to-set-a-mixers-volume-to-a-sliders-volume-in-unity
+        return Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * (maxVolume - minVolume) / 4f + maxVolume;
+    }
 
     protected override void OnActivate() { }
 

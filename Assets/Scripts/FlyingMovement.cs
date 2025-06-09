@@ -10,6 +10,7 @@ public class FlyingMovement : Movement
     private float _initialVerticalMoveSpeed;
 
     private Rigidbody2D _rigidbody;
+    private FlyingAudioController _audioController;
 
     public float HorizontalInput { get; set; } = 0f;
     public float VerticalInput { get; set; } = 0f;
@@ -17,6 +18,8 @@ public class FlyingMovement : Movement
     protected override void OnAwake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        TryGetComponent(out _audioController);
 
         _initialHorizontalMoveSpeed = _horizontalMoveSpeed;
         _initialVerticalMoveSpeed = _verticalMoveSpeed;
@@ -38,13 +41,14 @@ public class FlyingMovement : Movement
             return;
 
         _rigidbody.linearVelocityX = HorizontalInput * _horizontalMoveSpeed;
+        _rigidbody.linearVelocityY = VerticalInput * _verticalMoveSpeed;
 
         if (HorizontalInput > 0f)
-            _spriteRenderer.flipX = false;
+            _spriteRenderer.flipX = _spriteIsFlippedByDefault;
         else if (HorizontalInput < 0f)
-            _spriteRenderer.flipX = true;
+            _spriteRenderer.flipX = !_spriteIsFlippedByDefault;
 
-        _rigidbody.linearVelocityY = VerticalInput * _verticalMoveSpeed;
+        _audioController.Bind(audioController => audioController.SetFlying(HorizontalInput != 0f || VerticalInput != 0f));
     }
 
     public void ModifyMovementSpeed(float multiplier)

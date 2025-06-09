@@ -20,12 +20,16 @@ public class CoinManager : MonoBehaviour
         }
     }
 
+    private PlayerAudioController _audioController;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
             Destroy(gameObject);
 
         Instance = this;
+
+        TryGetComponent(out _audioController);
     }
 
     private void Start()
@@ -47,6 +51,8 @@ public class CoinManager : MonoBehaviour
     {
         CurrentAmount++;
         Save();
+
+        _audioController.Bind(audioController => audioController.PickCoin());
     }
 
     public bool TrySpendCoins(int amount)
@@ -56,6 +62,9 @@ public class CoinManager : MonoBehaviour
 
         CurrentAmount -= amount;
         Save();
+
+        _audioController.Bind(audioController => audioController.SpendCoins());
+
         return true;
     }
 

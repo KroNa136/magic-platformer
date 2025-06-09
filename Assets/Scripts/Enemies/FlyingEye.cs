@@ -19,6 +19,7 @@ public class FlyingEye : FlyingEnemy
 
     private EnemyHealthManager _healthManager;
     private Animator _animator;
+    private AttackAudioController _audioController;
 
     private bool _canAttack = true;
     private bool _isAttacking = false;
@@ -30,6 +31,7 @@ public class FlyingEye : FlyingEnemy
         _healthManager.OnCurrentAmountChange.AddListener(_ => StopAttacking());
 
         TryGetComponent(out _animator);
+        TryGetComponent(out _audioController);
     }
 
     private void Start()
@@ -67,6 +69,8 @@ public class FlyingEye : FlyingEnemy
     private void Attack()
     {
         _isAttacking = true;
+
+        _audioController.Bind(audioController => audioController.Attack());
 
         _animator.Bind(animator => _animator.SetTrigger("Attack"));
 

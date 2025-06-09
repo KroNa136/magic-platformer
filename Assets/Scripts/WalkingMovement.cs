@@ -12,6 +12,7 @@ public class WalkingMovement : Movement
 
     private Rigidbody2D _rigidbody;
     private BoxCollider2D _boxCollider;
+    private WalkingAudioController _audioController;
 
     public bool IsGrounded { get; private set; } = false;
     private bool _wasGroundedLastFrame = false;
@@ -24,6 +25,7 @@ public class WalkingMovement : Movement
         _rigidbody = GetComponent<Rigidbody2D>();
 
         TryGetComponent(out _boxCollider);
+        TryGetComponent(out _audioController);
     }
 
     private void Update()
@@ -33,7 +35,7 @@ public class WalkingMovement : Movement
         if (IsGrounded && !_wasGroundedLastFrame)
         {
             _animator.Bind(animator => animator.SetTrigger("Land"));
-            //_audioController.Land();
+            _audioController.Bind(audioController => audioController.Land());
         }
         else
         {
@@ -69,11 +71,11 @@ public class WalkingMovement : Movement
         _rigidbody.linearVelocityX = HorizontalInput * _moveSpeed;
 
         if (HorizontalInput > 0f)
-            _spriteRenderer.flipX = false;
+            _spriteRenderer.flipX = _spriteIsFlippedByDefault;
         else if (HorizontalInput < 0f)
-            _spriteRenderer.flipX = true;
+            _spriteRenderer.flipX = !_spriteIsFlippedByDefault;
 
-        //_audioController.SetWalking(_rigidbody.linearVelocityX != 0 && CheckGround());
+        _audioController.Bind(audioController => audioController.SetWalking(HorizontalInput != 0f && IsGrounded));
     }
 
     private void Jump()
@@ -85,7 +87,7 @@ public class WalkingMovement : Movement
         _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
 
         _animator.Bind(animator => animator.SetTrigger("Jump"));
-        //_audioController.Jump();
+        _audioController.Bind(audioController => audioController.Jump());
     }
 
     public bool CheckGround(bool strict = false)

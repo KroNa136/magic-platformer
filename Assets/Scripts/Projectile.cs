@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     private LayerMask _targetLayerMask;
 
     private Animator _animator;
+    private SpellAudioController _audioController;
 
     private bool _canMove = false;
     private bool _isDestroying = false;
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         TryGetComponent(out _animator);
+        TryGetComponent(out _audioController);
     }
 
     private void Start()
@@ -73,6 +75,8 @@ public class Projectile : MonoBehaviour
     {
         _canMove = false;
         _isDestroying = true;
+
+        _audioController.Bind(audioController => audioController.Hit());
 
         if (_animator != null)
         {

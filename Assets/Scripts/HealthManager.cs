@@ -29,6 +29,7 @@ public abstract class HealthManager : MonoBehaviour, IDamageable
     private SpriteRenderer _spriteRenderer;
     private Knockback _knockback;
     private Animator _animator;
+    private HealthAudioController _audioController;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public abstract class HealthManager : MonoBehaviour, IDamageable
 
         TryGetComponent(out _knockback);
         TryGetComponent(out _animator);
+        TryGetComponent(out _audioController);
 
         OnAwake();
     }
@@ -50,6 +52,7 @@ public abstract class HealthManager : MonoBehaviour, IDamageable
     public void TakeDamage(Transform source, float amount)
     {
         CurrentAmount = Mathf.Clamp(CurrentAmount - amount, 0f, _maxAmount);
+        _audioController.Bind(audioController => audioController.TakeDamage());
 
         if (CurrentAmount > 0f)
         {
@@ -83,6 +86,8 @@ public abstract class HealthManager : MonoBehaviour, IDamageable
         }
 
         OnDeath();
+
+        _audioController.Bind(audioController => audioController.Die());
 
         StartCoroutine(PlayDeathAnimation());
     }

@@ -17,6 +17,7 @@ public class GiantMushroom : WalkingEnemy
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private AttackAudioController _audioController;
 
     private bool _isAttacking = false;
 
@@ -26,7 +27,7 @@ public class GiantMushroom : WalkingEnemy
         {
             Vector2 attackDirection = new
             (
-                x: _spriteRenderer != null && _spriteRenderer.flipX ? -1f : 1f,
+                x: _spriteRenderer != null && (_spriteRenderer.flipX != _movement.SpriteIsFlippedByDefault) ? -1f : 1f,
                 y: 0f
             );
 
@@ -39,6 +40,7 @@ public class GiantMushroom : WalkingEnemy
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
         TryGetComponent(out _animator);
+        TryGetComponent(out _audioController);
     }
 
     private void Start()
@@ -75,6 +77,8 @@ public class GiantMushroom : WalkingEnemy
     private IEnumerator Attack()
     {
         _isAttacking = true;
+
+        _audioController.Bind(audioController => audioController.Attack());
 
         if (_animator != null)
         {

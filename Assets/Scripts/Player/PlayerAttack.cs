@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private AttackAudioController _audioController;
 
     private bool _canAttack = true;
     private bool _isAttacking = false;
@@ -28,17 +29,25 @@ public class PlayerAttack : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
         TryGetComponent(out _animator);
+        TryGetComponent(out _audioController);
     }
 
     private void Update()
     {
-        if (InputManager.Instance.Attack && !_isAttacking && _canAttack && ManaManager.Instance.TryDepleteMana(_manaConsumption))
-            StartCoroutine(PlayAnimationAndSpawnProjectile());
+        if (InputManager.Instance.Attack)
+        {
+            if (!_isAttacking && _canAttack && ManaManager.Instance.TryDepleteMana(_manaConsumption))
+                StartCoroutine(PlayAnimationAndSpawnProjectile());
+            else
+                _audioController.Bind(audioController => audioController.AttackFail());
+        }
     }
 
     private IEnumerator PlayAnimationAndSpawnProjectile()
     {
         _isAttacking = true;
+
+        _audioController.Bind(audioController => audioController.Attack());
 
         if (_animator != null)
         {
@@ -83,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
         GameObject projectile = Instantiate
         (
             original: _projectilePrefab,
-            position: _projectileSpawnPoint.position + new Vector3(_projectileSpawnPointHorizontalOffset * moveDirection.x, 0f, 0f),
+            position: (Vector2) _projectileSpawnPoint.position + new Vector2(_projectileSpawnPointHorizontalOffset * moveDirection.x, 0f),
             rotation: Quaternion.identity
         );
 
