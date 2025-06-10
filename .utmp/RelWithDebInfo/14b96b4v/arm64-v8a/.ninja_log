@@ -1,12 +1,23 @@
 # ninja log v5
-47	385	7712064843851628	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	8ff050ca289ecd25
-386	744	7712064846008706	F:/Git Repositories/magic-platformer/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/14b96b4v/obj/arm64-v8a/libswappywrapper.so	21232d0ce18a2e0d
-13	1882	7712064857852861	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	3459c3412460a221
-23	1927	7712064858160663	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	6c265fde71ded23d
-18	1930	7712064858861798	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	31ad68d930a47c0a
-41	1943	7712064859012782	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	8f1932f118011cb4
-7	1946	7712064859143488	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e171e7d9c360afd5
-35	2125	7712064860849235	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e3a222d90780c65d
-29	2373	7712064862671584	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	410dbcc7adace283
 1	2475	7712064864485982	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	9e7ce270c3ceb12f
+47	385	7712064843851628	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	8ff050ca289ecd25
+23	1927	7712064858160663	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	6c265fde71ded23d
+386	744	7712064846008706	F:/Git Repositories/magic-platformer/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/14b96b4v/obj/arm64-v8a/libswappywrapper.so	21232d0ce18a2e0d
+35	2125	7712064860849235	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e3a222d90780c65d
+13	1882	7712064857852861	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	3459c3412460a221
+18	1930	7712064858861798	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	31ad68d930a47c0a
+7	1946	7712064859143488	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e171e7d9c360afd5
+41	1943	7712064859012782	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	8f1932f118011cb4
+29	2373	7712064862671584	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	410dbcc7adace283
 2475	2891	7712064868566730	F:/Git Repositories/magic-platformer/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/14b96b4v/obj/arm64-v8a/libgame.so	c7807d474ec10c63
+63	406	7712451837841822	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	8ff050ca289ecd25
+407	833	7712451841167243	F:/Git Repositories/magic-platformer/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/14b96b4v/obj/arm64-v8a/libswappywrapper.so	21232d0ce18a2e0d
+11	1938	7712451852963048	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	31ad68d930a47c0a
+50	1948	7712451853184398	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	6c265fde71ded23d
+15	1978	7712451853465952	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	3459c3412460a221
+44	1984	7712451853465952	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	8f1932f118011cb4
+24	2098	7712451854749682	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e171e7d9c360afd5
+56	2264	7712451856266155	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e3a222d90780c65d
+39	2298	7712451856821886	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	410dbcc7adace283
+19	2378	7712451857585892	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	9e7ce270c3ceb12f
+2378	2464	7712451858481967	F:/Git Repositories/magic-platformer/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/14b96b4v/obj/arm64-v8a/libgame.so	c7807d474ec10c63
