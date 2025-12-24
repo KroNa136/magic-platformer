@@ -83,7 +83,8 @@ public class StatsModal : Modal
         int intellectUpgradePrice = PlayerStats.Instance.IntellectUpgradePrice;
 
         int currentUpgradeLevel = 1 + currentHealthUpgradeLevel + currentManaUpgradeLevel + currentIntellectUpgradeLevel;
-        _levelText.text = $"Level {currentUpgradeLevel}";
+        string levelWord = TranslationManager.Translations["Level"][TranslationManager.Instance.CurrentLanguage];
+        _levelText.text = $"{levelWord} {currentUpgradeLevel}";
 
         _healthProgressBar.value = currentHealthUpgradeLevel;
         _healthProgressText.text = $"{currentHealthUpgradeLevel} / {PlayerStats.MaxUpgradeLevel}";
